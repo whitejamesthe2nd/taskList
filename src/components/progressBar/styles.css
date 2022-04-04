@@ -1,0 +1,15 @@
+.blue{
+    background-color: blue;
+}
+.red{
+    background-color: red;
+}
+.red ,.blue{
+    height: inherit;
+    width: .25rem;;
+    display: inline-block;
+}
+.p-bar{
+    border-radius: 50%;
+    height: 10px;
+}
