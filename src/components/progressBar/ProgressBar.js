@@ -8,10 +8,10 @@ let ProgressBar = (props) => {
     let bar = [];
 
     for (let i = 0; i < blue; i++) {
-        bar.push(<span className="blue"></span>);
+        bar.push(<span className="blue" key={i}></span>);
     }
     for (let i = 0; i < red; i++) {
-        bar.push(<span className="red"></span>);
+        bar.push(<span className="red" key={i+blue}></span>);
     }
 
 
@@ -29,10 +29,10 @@ let ProgressBar = (props) => {
         <>
             <h1>Look here</h1>
             <form>
-                <label for='position'>Current Position: </label>
-                <input type='number' for='position' onChange={onChange }></input>
+                <label >Current Position: </label>
+                <input type='number'  onChange={onChange }></input>
             </form>
-            <div class='p-bar'>
+            <div className='p-bar'>
                 {bar.map((ele, i) => { return ele })}
 
             </div>
