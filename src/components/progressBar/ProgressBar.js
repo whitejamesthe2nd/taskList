@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import './styles.css';
 
+
+/*Progress Bar to show different comp[letion rates for tasks. Plans for more task customization. Like
+Weekly and daily tasks with multi tab changes hopefully converting to a mobile version
+    */
 let ProgressBar = (props) => {
     let[blue,setBlue] = useState(0);
 
