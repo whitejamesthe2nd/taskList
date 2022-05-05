@@ -1,22 +1,23 @@
 import React from 'react';
 
 
-export default function TaskList({TaskList}) {
+export default function TaskList({taskList}) {
+    console.log(taskList);
 
 
 
 
     return(
         <>
-        <p>yo</p>
-        {TaskList?null:TaskList.map(ele =>{
+        <p>I am here</p>
+        {taskList?taskList.map(ele =>{
             return(
             <div key={ele.name}>
-                <p>{ele.text}</p>
-                <p>yo</p>
+                <p>{ele.name}</p>
+                <p>ho</p>
             </div>
             )
-        })}
+        }):null}
         </>
 
     )

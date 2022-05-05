@@ -9,9 +9,8 @@ const LOCAL_STORAGE_KEY = 'taskApp.task';
 
 
 let Home = () => {
-    let [taskList, setTaskList] = useState([]);
+    let [taskList, setTaskList] = useState([{name:'this task list'}]);
     let [task, setTask] = useState({});
-    let logger = 0;
     let taskNameRef = useRef();
 
 
@@ -19,13 +18,11 @@ let Home = () => {
 
 
     let onSubmit = (e) => {
-        e.preventDefault();
         task.name = taskNameRef.current.value;
         if (task.name === '') return;
         setTaskList(prevTaskList => {
             return [...prevTaskList, task]
         })
-        logger += 1;
         taskNameRef.current.value = null;
         console.log(taskList);
     }
@@ -39,7 +36,7 @@ let Home = () => {
     }, [])
     useEffect(() => {
         console.log(taskList)
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(TaskList));
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(taskList));
     }, [taskList])
 
     return (
@@ -54,12 +51,12 @@ let Home = () => {
                 <section>
                     <h1> This is where my task list is finna be</h1>
 
-                    <form>
+
                         <label >Task Name: </label>
                         <input type='text'  ref={taskNameRef} ></input>
-                        <button type='Submit' onClick={onSubmit}>Submit</button>
-                    </form>
-                    <TaskList TaskList={TaskList}></TaskList>
+                        <button  onClick={onSubmit}>Submit</button>
+
+                    <TaskList taskList={taskList}></TaskList>
                 </section>
             </div>
 
